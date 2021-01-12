@@ -34,7 +34,6 @@ public class Missy {
         FMLJavaModLoadingContext.get().getModEventBus().register(this);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::commonSetup);
         MinecraftForge.EVENT_BUS.register(this);
-        MinecraftForge.EVENT_BUS.register(new CommonEvents());
     }
 
     private void commonSetup(FMLCommonSetupEvent event){

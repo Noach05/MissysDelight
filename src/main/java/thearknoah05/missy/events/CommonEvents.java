@@ -43,6 +43,9 @@ import net.tardis.mod.trades.Villager;
 
 import java.util.Random;
 
+import static net.minecraftforge.common.DimensionManager.getWorld;
+import static net.minecraftforge.common.DimensionManager.initWorld;
+
 @Mod.EventBusSubscriber(modid = Missy.MODID)
 public class CommonEvents {
 
@@ -98,17 +101,16 @@ public class CommonEvents {
         //NetworkHelper.sendMessage("3");
     }
 
-    int timer = 0;
     @SubscribeEvent
     public void onWorldTick(TickEvent.WorldTickEvent event) {
-        timer += 1;
-        if (timer == 10) {
 
             if (event.world.getDimension().getType().getModType() == TDimensions.TARDIS) {
 
                 TardisHelper.getConsoleInWorld(event.world).ifPresent(tile -> {
                     Random rand = new Random();
 
+
+                if(event.world.getGameTime() % 10 == 0) {
                     event.world.getCapability(Capabilities.TARDIS_DATA).ifPresent(cap -> {
                         PanelInventory panel = cap.getEngineInventoryForSide(Direction.EAST);
                         PanelInventory comp = cap.getEngineInventoryForSide(Direction.NORTH);
@@ -269,32 +271,35 @@ public class CommonEvents {
                         }
 
                     });
+                }
 
+                 if(event.world.getGameTime() % 10 == 0) {
+                     if (tile.getSonicItem().getItem() != null) {
+                         if (tile.getSonicItem().getItem() == TItems.SONIC) {
+                             SonicItem sonic = (SonicItem) tile.getSonicItem().getItem();
+                             ItemStack sonicStack = tile.getSonicItem().getStack();
+                             if (event.world.getGameTime() % 20 == 0) {
+                                 sonic.charge(sonicStack, 1f);
+                             }
+                         }
+                     }
+                 }
+                 if(event.world.getGameTime() % 10 == 0) {
+                     if (tile.getDestinationDimension() != null)
+                         if (tile.getDestinationDimension() == DimensionType.THE_END) {
+                             if (tile.isInFlight()) {
+                                 ServerWorld world = tile.getWorld().getServer().func_71218_a(tile.getDestinationDimension());
+                                 if (world != null) {
+                                     if (!MissyHelper.hasDragonBeenKilled(world)) {
+                                         tile.setDestination(DimensionType.OVERWORLD, new BlockPos(-1000 + rand.nextInt(2000), 64, -1000 + rand.nextInt(2000)));
+                                         tile.getInteriorManager().setAlarmOn(true);
+                                         tile.getWorld().playSound(null, tile.getPos(), MSounds.ALERT_ALARM, SoundCategory.BLOCKS, 0.4f, 1f);
 
-                    if (tile.getSonicItem().getItem() != null) {
-                        if (tile.getSonicItem().getItem() == TItems.SONIC) {
-                            SonicItem sonic = (SonicItem) tile.getSonicItem().getItem();
-                            ItemStack sonicStack = tile.getSonicItem().getStack();
-                            if (event.world.getGameTime() % 20 == 0) {
-                                sonic.charge(sonicStack, 1f);
-                            }
-                        }
-                    }
-
-                    if (tile.getDestinationDimension() != null)
-                        if (tile.getDestinationDimension() == DimensionType.THE_END) {
-                            if (tile.isInFlight()) {
-                                ServerWorld world = tile.getWorld().getServer().func_71218_a(tile.getDestinationDimension());
-                                if (world != null) {
-                                    if (!MissyHelper.hasDragonBeenKilled(world)) {
-                                        tile.setDestination(DimensionType.OVERWORLD, new BlockPos(-1000 + rand.nextInt(2000), 64, -1000 + rand.nextInt(2000)));
-                                        tile.getInteriorManager().setAlarmOn(true);
-                                        tile.getWorld().playSound(null, tile.getPos(), MSounds.ALERT_ALARM, SoundCategory.BLOCKS, 0.4f, 1f);
-
-                                    }
-                                }
-                            }
-                        }
+                                     }
+                                 }
+                             }
+                         }
+                 }
 
                     ExteriorTile exteriorBlock = tile.getExterior().getExterior(tile);
                     if (exteriorBlock != null) {
@@ -314,12 +319,9 @@ public class CommonEvents {
                 });
 
             }
-            timer = 0;
-            Missy.LOGGER.info("Checked");
 
         }
-        Missy.LOGGER.info("Ticked");
-    }
+
 
     @SubscribeEvent
     public static void onEntityJoin(EntityJoinWorldEvent event){

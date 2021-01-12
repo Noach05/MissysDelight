@@ -1,0 +1,13 @@
+{
+	"repair": "false",
+	"ingredients": [
+		"minecraft:hopper",
+		"minecraft:redstone_torch",
+		"tardis:circuits",
+		"tardis:artron_capacitor_high",
+		"tardis:circuits"
+	],
+	"result": {
+		"item": "missy:temporal_siphon"
+	}
+}

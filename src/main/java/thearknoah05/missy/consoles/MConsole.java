@@ -30,13 +30,13 @@ public class MConsole implements IRegisterable<Console> {
     @SubscribeEvent
     public static void eventBusSubscriber(FMLCommonSetupEvent event) {
         TardisRegistries.registerRegisters(() -> {
-            COPPER = register(new Console(() -> MBlocks.console_copper.getDefaultState(), "copper"), "copper");
+            COPPER = register(new Console(() -> MBlocks.console_copper.getDefaultState(), "copper"), "copper", new ResourceLocation(Missy.MODID,"textures/gui/copper.png"));
 
 
         });
     }
 
-    private static Console register(Console console, String name) {
+    private static Console register(Console console, String name, ResourceLocation resourceLocation) {
         console.setRegistryName(new ResourceLocation(Tardis.MODID, name));
         TardisRegistries.CONSOLE_REGISTRY.register(console.getRegistryName(), console);
         return console;

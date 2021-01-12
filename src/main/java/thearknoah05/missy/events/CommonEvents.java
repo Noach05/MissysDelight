@@ -102,7 +102,7 @@ public class CommonEvents {
     }
 
     @SubscribeEvent
-    public void onWorldTick(TickEvent.WorldTickEvent event) {
+    public static void onWorldTick(TickEvent.WorldTickEvent event) {
 
             if (event.world.getDimension().getType().getModType() == TDimensions.TARDIS) {
 

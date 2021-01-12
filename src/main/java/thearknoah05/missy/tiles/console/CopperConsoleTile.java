@@ -16,6 +16,13 @@ import java.util.ArrayList;
 public class CopperConsoleTile extends ConsoleTile implements ITickableTileEntity {
 
     private static final AxisAlignedBB CONRTROL_HITBOX = new AxisAlignedBB(-1.0D, 0.0D, -1.0D, 2.0D, 2.0D, 2.0D);
+    public static final AxisAlignedBB RENDER_BOX = new AxisAlignedBB(-2, -1, -2, 2, 2.5, 2);
+
+    @Override
+    public AxisAlignedBB getRenderBoundingBox() {
+        return RENDER_BOX.offset(this.getPos());
+    }
+
     private ArrayList<ControlEntity> controls = new ArrayList();
     private ArrayList<ControlRegistry.ControlEntry<?>> controlEntries = new ArrayList();
 

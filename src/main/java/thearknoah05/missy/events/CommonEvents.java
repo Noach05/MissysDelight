@@ -98,219 +98,227 @@ public class CommonEvents {
         //NetworkHelper.sendMessage("3");
     }
 
+    int timer = 0;
     @SubscribeEvent
-    public static void onWorldTick(TickEvent.WorldTickEvent event) {
+    public void onWorldTick(TickEvent.WorldTickEvent event) {
+        timer += 1;
+        if (timer == 10) {
 
-        if (event.world.getDimension().getType().getModType() == TDimensions.TARDIS){
+            if (event.world.getDimension().getType().getModType() == TDimensions.TARDIS) {
 
-            TardisHelper.getConsoleInWorld(event.world).ifPresent(tile -> {
-                Random rand = new Random();
+                TardisHelper.getConsoleInWorld(event.world).ifPresent(tile -> {
+                    Random rand = new Random();
 
-                event.world.getCapability(Capabilities.TARDIS_DATA).ifPresent(cap -> {
-                    PanelInventory panel = cap.getEngineInventoryForSide(Direction.EAST);
-                    PanelInventory comp = cap.getEngineInventoryForSide(Direction.NORTH);
+                    event.world.getCapability(Capabilities.TARDIS_DATA).ifPresent(cap -> {
+                        PanelInventory panel = cap.getEngineInventoryForSide(Direction.EAST);
+                        PanelInventory comp = cap.getEngineInventoryForSide(Direction.NORTH);
 
-                    if (comp != null) {
+                        if (comp != null) {
 
-                        boolean isPresent = false;
+                            boolean isPresent = false;
 
-                        for(int i = 0; i < comp.getSizeInventory(); ++i) {
-                            ItemStack stack = comp.getStackInSlot(i);
-                            if (stack.getItem() == TItems.SHEILD_GENERATOR) {
-                                isPresent = true;
+                            for (int i = 0; i < comp.getSizeInventory(); ++i) {
+                                ItemStack stack = comp.getStackInSlot(i);
+                                if (stack.getItem() == TItems.SHEILD_GENERATOR) {
+                                    isPresent = true;
+                                }
+
+                            }
+
+                            if (isPresent != true) {
+                                if (rand.nextInt(5000) <= 1 && tile.isInFlight()) {
+                                    TemporalBatEntity bat = new TemporalBatEntity(event.world);
+                                    bat.setPosition(tile.getPos().getX() + 0.5f, tile.getPos().getY() + 1, tile.getPos().getZ() + 0.5f);
+                                    event.world.addEntity(bat);
+                                }
                             }
 
                         }
 
-                        if (isPresent != true) {
-                            if (rand.nextInt(5000) <= 1 && tile.isInFlight()) {
-                                TemporalBatEntity bat = new TemporalBatEntity(event.world);
-                                bat.setPosition(tile.getPos().getX() + 0.5f, tile.getPos().getY() + 1, tile.getPos().getZ() + 0.5f);
-                                event.world.addEntity(bat);
+                        if (panel != null) {
+                            for (int i = 0; i < panel.getSizeInventory(); ++i) {
+                                ItemStack stack = panel.getStackInSlot(i);
+
+                                if (stack.getItem() == Items.CHICKEN) {
+                                    if (rand.nextInt(100 * stack.getStack().getCount()) == 1) {
+                                        ItemStack item = new ItemStack(Items.COOKED_CHICKEN);
+                                        item.setCount(stack.getStack().getCount());
+                                        panel.removeStackFromSlot(i);
+                                        panel.setInventorySlotContents(i, item);
+                                        tile.getWorld().playSound(null, tile.getPos(), MSounds.BELL_RING, SoundCategory.BLOCKS, 10f, 1.5f);
+                                    }
+
+                                    if (rand.nextInt(100 * stack.getStack().getCount()) == 2) {
+                                        ItemStack item = new ItemStack(Items.ROTTEN_FLESH);
+                                        item.setCount(stack.getStack().getCount());
+                                        panel.removeStackFromSlot(i);
+                                        panel.setInventorySlotContents(i, item);
+                                        tile.getWorld().playSound(null, tile.getPos(), MSounds.BELL_RING, SoundCategory.BLOCKS, 10f, 1.5f);
+                                    }
+                                }
+
+                                if (stack.getItem() == Items.BEEF) {
+                                    if (rand.nextInt(100 * stack.getStack().getCount()) == 1) {
+                                        ItemStack item = new ItemStack(Items.COOKED_BEEF);
+                                        item.setCount(stack.getStack().getCount());
+                                        panel.removeStackFromSlot(i);
+                                        panel.setInventorySlotContents(i, item);
+                                        tile.getWorld().playSound(null, tile.getPos(), MSounds.BELL_RING, SoundCategory.BLOCKS, 10f, 1.5f);
+                                    }
+
+                                    if (rand.nextInt(100 * stack.getStack().getCount()) == 2) {
+                                        ItemStack item = new ItemStack(Items.ROTTEN_FLESH);
+                                        item.setCount(stack.getStack().getCount());
+                                        panel.removeStackFromSlot(i);
+                                        panel.setInventorySlotContents(i, item);
+                                        tile.getWorld().playSound(null, tile.getPos(), MSounds.BELL_RING, SoundCategory.BLOCKS, 10f, 1.5f);
+                                    }
+                                }
+
+                                if (stack.getItem() == Items.MUTTON) {
+                                    if (rand.nextInt(100 * stack.getStack().getCount()) == 1) {
+                                        ItemStack item = new ItemStack(Items.COOKED_MUTTON);
+                                        item.setCount(stack.getStack().getCount());
+                                        panel.removeStackFromSlot(i);
+                                        panel.setInventorySlotContents(i, item);
+                                        tile.getWorld().playSound(null, tile.getPos(), MSounds.BELL_RING, SoundCategory.BLOCKS, 10f, 1.5f);
+                                    }
+
+                                    if (rand.nextInt(100 * stack.getStack().getCount()) == 2) {
+                                        ItemStack item = new ItemStack(Items.ROTTEN_FLESH);
+                                        item.setCount(stack.getStack().getCount());
+                                        panel.removeStackFromSlot(i);
+                                        panel.setInventorySlotContents(i, item);
+                                        tile.getWorld().playSound(null, tile.getPos(), MSounds.BELL_RING, SoundCategory.BLOCKS, 10f, 1.5f);
+                                    }
+                                }
+
+                                if (stack.getItem() == Items.PORKCHOP) {
+                                    if (rand.nextInt(100 * stack.getStack().getCount()) == 1) {
+                                        ItemStack item = new ItemStack(Items.COOKED_PORKCHOP);
+                                        item.setCount(stack.getStack().getCount());
+                                        panel.removeStackFromSlot(i);
+                                        panel.setInventorySlotContents(i, item);
+                                        tile.getWorld().playSound(null, tile.getPos(), MSounds.BELL_RING, SoundCategory.BLOCKS, 10f, 1.5f);
+                                    }
+
+                                    if (rand.nextInt(100 * stack.getStack().getCount()) == 2) {
+                                        ItemStack item = new ItemStack(Items.ROTTEN_FLESH);
+                                        item.setCount(stack.getStack().getCount());
+                                        panel.removeStackFromSlot(i);
+                                        panel.setInventorySlotContents(i, item);
+                                        tile.getWorld().playSound(null, tile.getPos(), MSounds.BELL_RING, SoundCategory.BLOCKS, 10f, 1.5f);
+                                    }
+                                }
+
+                                if (stack.getItem() == Items.COD) {
+                                    if (rand.nextInt(100 * stack.getStack().getCount()) == 1) {
+                                        ItemStack item = new ItemStack(Items.COOKED_COD);
+                                        item.setCount(stack.getStack().getCount());
+                                        panel.removeStackFromSlot(i);
+                                        panel.setInventorySlotContents(i, item);
+                                        tile.getWorld().playSound(null, tile.getPos(), MSounds.BELL_RING, SoundCategory.BLOCKS, 10f, 1.5f);
+                                    }
+
+                                    if (rand.nextInt(100 * stack.getStack().getCount()) == 2) {
+                                        ItemStack item = new ItemStack(Items.ROTTEN_FLESH);
+                                        item.setCount(stack.getStack().getCount());
+                                        panel.removeStackFromSlot(i);
+                                        panel.setInventorySlotContents(i, item);
+                                        tile.getWorld().playSound(null, tile.getPos(), MSounds.BELL_RING, SoundCategory.BLOCKS, 10f, 1.5f);
+                                    }
+                                }
+
+                                if (stack.getItem() == Items.SALMON) {
+                                    if (rand.nextInt(100 * stack.getStack().getCount()) == 1) {
+                                        ItemStack item = new ItemStack(Items.COOKED_SALMON);
+                                        item.setCount(stack.getStack().getCount());
+                                        panel.removeStackFromSlot(i);
+                                        panel.setInventorySlotContents(i, item);
+                                        tile.getWorld().playSound(null, tile.getPos(), MSounds.BELL_RING, SoundCategory.BLOCKS, 10f, 1.5f);
+                                    }
+
+                                    if (rand.nextInt(100 * stack.getStack().getCount()) == 2) {
+                                        ItemStack item = new ItemStack(Items.ROTTEN_FLESH);
+                                        item.setCount(stack.getStack().getCount());
+                                        panel.removeStackFromSlot(i);
+                                        panel.setInventorySlotContents(i, item);
+                                        tile.getWorld().playSound(null, tile.getPos(), MSounds.BELL_RING, SoundCategory.BLOCKS, 10f, 1.5f);
+                                    }
+                                }
+
+                                if (stack.getItem() == Items.RABBIT) {
+                                    if (rand.nextInt(100 * stack.getStack().getCount()) == 1) {
+                                        ItemStack item = new ItemStack(Items.COOKED_RABBIT);
+                                        item.setCount(stack.getStack().getCount());
+                                        panel.removeStackFromSlot(i);
+                                        panel.setInventorySlotContents(i, item);
+                                        tile.getWorld().playSound(null, tile.getPos(), MSounds.BELL_RING, SoundCategory.BLOCKS, 10f, 1.5f);
+                                    }
+
+                                    if (rand.nextInt(100 * stack.getStack().getCount()) == 2) {
+                                        ItemStack item = new ItemStack(Items.ROTTEN_FLESH);
+                                        item.setCount(stack.getStack().getCount());
+                                        panel.removeStackFromSlot(i);
+                                        panel.setInventorySlotContents(i, item);
+                                        tile.getWorld().playSound(null, tile.getPos(), MSounds.BELL_RING, SoundCategory.BLOCKS, 10f, 1.5f);
+                                    }
+                                }
+
                             }
                         }
 
+                    });
+
+
+                    if (tile.getSonicItem().getItem() != null) {
+                        if (tile.getSonicItem().getItem() == TItems.SONIC) {
+                            SonicItem sonic = (SonicItem) tile.getSonicItem().getItem();
+                            ItemStack sonicStack = tile.getSonicItem().getStack();
+                            if (event.world.getGameTime() % 20 == 0) {
+                                sonic.charge(sonicStack, 1f);
+                            }
+                        }
                     }
 
-                    if (panel != null) {
-                        for(int i = 0; i < panel.getSizeInventory(); ++i) {
-                            ItemStack stack = panel.getStackInSlot(i);
+                    if (tile.getDestinationDimension() != null)
+                        if (tile.getDestinationDimension() == DimensionType.THE_END) {
+                            if (tile.isInFlight()) {
+                                ServerWorld world = tile.getWorld().getServer().func_71218_a(tile.getDestinationDimension());
+                                if (world != null) {
+                                    if (!MissyHelper.hasDragonBeenKilled(world)) {
+                                        tile.setDestination(DimensionType.OVERWORLD, new BlockPos(-1000 + rand.nextInt(2000), 64, -1000 + rand.nextInt(2000)));
+                                        tile.getInteriorManager().setAlarmOn(true);
+                                        tile.getWorld().playSound(null, tile.getPos(), MSounds.ALERT_ALARM, SoundCategory.BLOCKS, 0.4f, 1f);
 
-                            if(stack.getItem() == Items.CHICKEN ) {
-                                if (rand.nextInt(100 * stack.getStack().getCount()) == 1) {
-                                    ItemStack item = new ItemStack(Items.COOKED_CHICKEN);
-                                    item.setCount(stack.getStack().getCount());
-                                    panel.removeStackFromSlot(i);
-                                    panel.setInventorySlotContents(i, item);
-                                    tile.getWorld().playSound(null, tile.getPos(), MSounds.BELL_RING, SoundCategory.BLOCKS, 10f,1.5f);
-                                }
-
-                                if (rand.nextInt(100 * stack.getStack().getCount()) == 2){
-                                    ItemStack item = new ItemStack(Items.ROTTEN_FLESH);
-                                    item.setCount(stack.getStack().getCount());
-                                    panel.removeStackFromSlot(i);
-                                    panel.setInventorySlotContents(i, item);
-                                    tile.getWorld().playSound(null, tile.getPos(), MSounds.BELL_RING, SoundCategory.BLOCKS, 10f,1.5f);
+                                    }
                                 }
                             }
+                        }
 
-                            if(stack.getItem() == Items.BEEF ) {
-                                if (rand.nextInt(100 * stack.getStack().getCount()) == 1) {
-                                    ItemStack item = new ItemStack(Items.COOKED_BEEF);
-                                    item.setCount(stack.getStack().getCount());
-                                    panel.removeStackFromSlot(i);
-                                    panel.setInventorySlotContents(i, item);
-                                    tile.getWorld().playSound(null, tile.getPos(), MSounds.BELL_RING, SoundCategory.BLOCKS, 10f,1.5f);
-                                }
-
-                                if (rand.nextInt(100 * stack.getStack().getCount()) == 2){
-                                    ItemStack item = new ItemStack(Items.ROTTEN_FLESH);
-                                    item.setCount(stack.getStack().getCount());
-                                    panel.removeStackFromSlot(i);
-                                    panel.setInventorySlotContents(i, item);
-                                    tile.getWorld().playSound(null, tile.getPos(), MSounds.BELL_RING, SoundCategory.BLOCKS, 10f,1.5f);
-                                }
+                    ExteriorTile exteriorBlock = tile.getExterior().getExterior(tile);
+                    if (exteriorBlock != null) {
+                        if (!tile.getDistressSignals().isEmpty() && tile.getExterior().getExterior(tile).getWorld().getGameTime() % 100 == 0 && !tile.isInFlight()) {
+                            if (exteriorBlock instanceof ModernPoliceBoxExteriorTile || exteriorBlock instanceof PoliceBoxExteriorTile || exteriorBlock instanceof RedExteriorTile) {
+                                exteriorBlock.getWorld().playSound(null, tile.getExterior().getExterior(tile).getPos(), TSounds.COMMUNICATOR_RING, SoundCategory.BLOCKS, 1f, 1f);
                             }
+                        }
 
-                            if(stack.getItem() == Items.MUTTON ) {
-                                if (rand.nextInt(100 * stack.getStack().getCount()) == 1) {
-                                    ItemStack item = new ItemStack(Items.COOKED_MUTTON);
-                                    item.setCount(stack.getStack().getCount());
-                                    panel.removeStackFromSlot(i);
-                                    panel.setInventorySlotContents(i, item);
-                                    tile.getWorld().playSound(null, tile.getPos(), MSounds.BELL_RING, SoundCategory.BLOCKS, 10f,1.5f);
-                                }
-
-                                if (rand.nextInt(100 * stack.getStack().getCount()) == 2){
-                                    ItemStack item = new ItemStack(Items.ROTTEN_FLESH);
-                                    item.setCount(stack.getStack().getCount());
-                                    panel.removeStackFromSlot(i);
-                                    panel.setInventorySlotContents(i, item);
-                                    tile.getWorld().playSound(null, tile.getPos(), MSounds.BELL_RING, SoundCategory.BLOCKS, 10f,1.5f);
-                                }
+                        if (tile.getExterior().getExterior(tile).getWorld().getGameTime() % 70 == 0 && !tile.isInFlight()) {
+                            if (tile.getInteriorManager().isAlarmOn()) {
+                                exteriorBlock.getWorld().playSound(null, tile.getExterior().getExterior(tile).getPos(), TSounds.SINGLE_CLOISTER, SoundCategory.BLOCKS, 2f, 1f);
                             }
-
-                            if(stack.getItem() == Items.PORKCHOP ) {
-                                if (rand.nextInt(100 * stack.getStack().getCount()) == 1) {
-                                    ItemStack item = new ItemStack(Items.COOKED_PORKCHOP);
-                                    item.setCount(stack.getStack().getCount());
-                                    panel.removeStackFromSlot(i);
-                                    panel.setInventorySlotContents(i, item);
-                                    tile.getWorld().playSound(null, tile.getPos(), MSounds.BELL_RING, SoundCategory.BLOCKS, 10f,1.5f);
-                                }
-
-                                if (rand.nextInt(100 * stack.getStack().getCount()) == 2){
-                                    ItemStack item = new ItemStack(Items.ROTTEN_FLESH);
-                                    item.setCount(stack.getStack().getCount());
-                                    panel.removeStackFromSlot(i);
-                                    panel.setInventorySlotContents(i, item);
-                                    tile.getWorld().playSound(null, tile.getPos(), MSounds.BELL_RING, SoundCategory.BLOCKS, 10f,1.5f);
-                                }
-                            }
-
-                            if(stack.getItem() == Items.COD ) {
-                                if (rand.nextInt(100 * stack.getStack().getCount()) == 1) {
-                                    ItemStack item = new ItemStack(Items.COOKED_COD);
-                                    item.setCount(stack.getStack().getCount());
-                                    panel.removeStackFromSlot(i);
-                                    panel.setInventorySlotContents(i, item);
-                                    tile.getWorld().playSound(null, tile.getPos(), MSounds.BELL_RING, SoundCategory.BLOCKS, 10f,1.5f);
-                                }
-
-                                if (rand.nextInt(100 * stack.getStack().getCount()) == 2){
-                                    ItemStack item = new ItemStack(Items.ROTTEN_FLESH);
-                                    item.setCount(stack.getStack().getCount());
-                                    panel.removeStackFromSlot(i);
-                                    panel.setInventorySlotContents(i, item);
-                                    tile.getWorld().playSound(null, tile.getPos(), MSounds.BELL_RING, SoundCategory.BLOCKS, 10f,1.5f);
-                                }
-                            }
-
-                            if(stack.getItem() == Items.SALMON ) {
-                                if (rand.nextInt(100 * stack.getStack().getCount()) == 1) {
-                                    ItemStack item = new ItemStack(Items.COOKED_SALMON);
-                                    item.setCount(stack.getStack().getCount());
-                                    panel.removeStackFromSlot(i);
-                                    panel.setInventorySlotContents(i, item);
-                                    tile.getWorld().playSound(null, tile.getPos(), MSounds.BELL_RING, SoundCategory.BLOCKS, 10f,1.5f);
-                                }
-
-                                if (rand.nextInt(100 * stack.getStack().getCount()) == 2){
-                                    ItemStack item = new ItemStack(Items.ROTTEN_FLESH);
-                                    item.setCount(stack.getStack().getCount());
-                                    panel.removeStackFromSlot(i);
-                                    panel.setInventorySlotContents(i, item);
-                                    tile.getWorld().playSound(null, tile.getPos(), MSounds.BELL_RING, SoundCategory.BLOCKS, 10f,1.5f);
-                                }
-                            }
-
-                            if(stack.getItem() == Items.RABBIT ) {
-                                if (rand.nextInt(100 * stack.getStack().getCount()) == 1) {
-                                    ItemStack item = new ItemStack(Items.COOKED_RABBIT);
-                                    item.setCount(stack.getStack().getCount());
-                                    panel.removeStackFromSlot(i);
-                                    panel.setInventorySlotContents(i, item);
-                                    tile.getWorld().playSound(null, tile.getPos(), MSounds.BELL_RING, SoundCategory.BLOCKS, 10f,1.5f);
-                                }
-
-                                if (rand.nextInt(100 * stack.getStack().getCount()) == 2){
-                                    ItemStack item = new ItemStack(Items.ROTTEN_FLESH);
-                                    item.setCount(stack.getStack().getCount());
-                                    panel.removeStackFromSlot(i);
-                                    panel.setInventorySlotContents(i, item);
-                                    tile.getWorld().playSound(null, tile.getPos(), MSounds.BELL_RING, SoundCategory.BLOCKS, 10f,1.5f);
-                                }
-                            }
-
                         }
                     }
 
                 });
 
-
-                if (tile.getSonicItem().getItem() != null) {
-                    if (tile.getSonicItem().getItem() == TItems.SONIC) {
-                        SonicItem sonic = (SonicItem) tile.getSonicItem().getItem();
-                        ItemStack sonicStack = tile.getSonicItem().getStack();
-                        if (event.world.getGameTime() % 20 == 0) {
-                            sonic.charge(sonicStack, 1f);
-                        }
-                    }
-                }
-
-                if (tile.getDestinationDimension() != null)
-                    if (tile.getDestinationDimension() == DimensionType.THE_END){
-                        if (tile.isInFlight()){
-                            ServerWorld world = tile.getWorld().getServer().func_71218_a(tile.getDestinationDimension());
-                            if (world != null){
-                                if (!MissyHelper.hasDragonBeenKilled(world)) {
-                                    tile.setDestination(DimensionType.OVERWORLD, new BlockPos(-1000 + rand.nextInt(2000), 64, -1000 + rand.nextInt(2000)));
-                                    tile.getInteriorManager().setAlarmOn(true);
-                                    tile.getWorld().playSound(null, tile.getPos(), MSounds.ALERT_ALARM, SoundCategory.BLOCKS, 0.4f,1f);
-
-                                }
-                            }
-                        }
-                    }
-
-                ExteriorTile exteriorBlock = tile.getExterior().getExterior(tile);
-                if (exteriorBlock != null) {
-                    if (!tile.getDistressSignals().isEmpty() && tile.getExterior().getExterior(tile).getWorld().getGameTime() % 100 == 0 && !tile.isInFlight()) {
-                        if (exteriorBlock instanceof ModernPoliceBoxExteriorTile || exteriorBlock instanceof PoliceBoxExteriorTile || exteriorBlock instanceof RedExteriorTile) {
-                            exteriorBlock.getWorld().playSound(null, tile.getExterior().getExterior(tile).getPos(), TSounds.COMMUNICATOR_RING, SoundCategory.BLOCKS, 1f, 1f);
-                        }
-                    }
-
-                    if (tile.getExterior().getExterior(tile).getWorld().getGameTime() % 70 == 0 && !tile.isInFlight()) {
-                        if (tile.getInteriorManager().isAlarmOn()) {
-                            exteriorBlock.getWorld().playSound(null, tile.getExterior().getExterior(tile).getPos(), TSounds.SINGLE_CLOISTER, SoundCategory.BLOCKS, 2f, 1f);
-                        }
-                    }
-                }
-
-            });
+            }
+            timer = 0;
+            Missy.LOGGER.info("Checked");
 
         }
+        Missy.LOGGER.info("Ticked");
     }
 
     @SubscribeEvent

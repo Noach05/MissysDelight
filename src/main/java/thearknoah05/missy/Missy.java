@@ -1,5 +1,6 @@
 package thearknoah05.missy;
 
+import net.tardis.mod.events.CommonEvents;
 import thearknoah05.missy.data.LootTableCreation;
 import thearknoah05.missy.exterior.MissyExteriors;
 import thearknoah05.missy.protocols.ProtocolRegistry;
@@ -24,14 +25,16 @@ public class Missy {
 
     public static IProxy proxy;
 
-    private static final Logger LOGGER = LogManager.getLogger();
+    public static final Logger LOGGER = LogManager.getLogger();
+
+
 
     public Missy() {
 
         FMLJavaModLoadingContext.get().getModEventBus().register(this);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::commonSetup);
         MinecraftForge.EVENT_BUS.register(this);
-
+        MinecraftForge.EVENT_BUS.register(new CommonEvents());
     }
 
     private void commonSetup(FMLCommonSetupEvent event){

@@ -39,7 +39,7 @@ public class MSounds {
     }
 
     public static SoundEvent setUpSound(String soundName) {
-        return new SoundEvent(new ResourceLocation(Master.MODID, soundName)).setRegistryName(soundName);
+        return new SoundEvent(new ResourceLocation(Missy.MODID, soundName)).setRegistryName(soundName);
     }
 
     public static void registerSoundScheme(ResourceLocation loc, ISoundScheme scheme) {

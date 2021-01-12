@@ -3,7 +3,7 @@ loaderVersion="[28,)" #mandatory
 issueTrackerURL="https://github.com/Noach05/MissysDelight/issues" #optional
 
 [[mods]] #mandatory
-modId="master" #mandatory
+modId="missy" #mandatory
 version="0.1B" #mandatory
 displayName="Missy's Delight" #mandatory
 #updateJSONURL="/" #optional

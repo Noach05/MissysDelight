@@ -1,6 +1,6 @@
 package thearknoah05.missy.ars;
 
-import commandrmoose.missy.Master;
+import thearknoah05.missy.Missy;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TranslationTextComponent;

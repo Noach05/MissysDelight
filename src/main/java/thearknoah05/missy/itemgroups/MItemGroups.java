@@ -11,7 +11,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 @Mod.EventBusSubscriber(modid = Missy.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class MItemGroups {
 
-    public static ItemGroup MAIN = new ItemGroup(Nissy.MODID + ".main") {
+    public static ItemGroup MAIN = new ItemGroup(Missy.MODID + ".main") {
         @Override
         public ItemStack createIcon() {
             return new ItemStack(MBlocks.toaster);

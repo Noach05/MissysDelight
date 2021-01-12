@@ -36,7 +36,7 @@ public class MEntities {
 
 
     public static <T extends Entity> EntityType<T> registerBase(EntityType.IFactory<T> factory, MEntities.IClientSpawner<T> client, EntityClassification classification, float width, float height, int trackingRange, int updateFreq, boolean sendUpdate, String name){
-        ResourceLocation loc = new ResourceLocation(Master.MODID, name);
+        ResourceLocation loc = new ResourceLocation(Missy.MODID, name);
         EntityType.Builder<T> builder = EntityType.Builder.create(factory, classification)
                 .setShouldReceiveVelocityUpdates(sendUpdate)
                 .setTrackingRange(trackingRange)

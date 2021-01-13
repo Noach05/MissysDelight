@@ -273,7 +273,7 @@ public class CommonEvents {
                     });
                 }
 
-                 if(event.world.getGameTime() % 10 == 0) {
+                 if(event.world.getGameTime() % 15 == 0) {
                      if (tile.getSonicItem().getItem() != null) {
                          if (tile.getSonicItem().getItem() == TItems.SONIC) {
                              SonicItem sonic = (SonicItem) tile.getSonicItem().getItem();
@@ -284,7 +284,7 @@ public class CommonEvents {
                          }
                      }
                  }
-                 if(event.world.getGameTime() % 10 == 0) {
+                 if(event.world.getGameTime() % 20 == 0) {
                      if (tile.getDestinationDimension() != null)
                          if (tile.getDestinationDimension() == DimensionType.THE_END) {
                              if (tile.isInFlight()) {
@@ -300,7 +300,6 @@ public class CommonEvents {
                              }
                          }
                  }
-
                     ExteriorTile exteriorBlock = tile.getExterior().getExterior(tile);
                     if (exteriorBlock != null) {
                         if (!tile.getDistressSignals().isEmpty() && tile.getExterior().getExterior(tile).getWorld().getGameTime() % 100 == 0 && !tile.isInFlight()) {
@@ -308,6 +307,7 @@ public class CommonEvents {
                                 exteriorBlock.getWorld().playSound(null, tile.getExterior().getExterior(tile).getPos(), TSounds.COMMUNICATOR_RING, SoundCategory.BLOCKS, 1f, 1f);
                             }
                         }
+
 
                         if (tile.getExterior().getExterior(tile).getWorld().getGameTime() % 70 == 0 && !tile.isInFlight()) {
                             if (tile.getInteriorManager().isAlarmOn()) {
@@ -317,6 +317,7 @@ public class CommonEvents {
                     }
 
                 });
+
 
             }
 

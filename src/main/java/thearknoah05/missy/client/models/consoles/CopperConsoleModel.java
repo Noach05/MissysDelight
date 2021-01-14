@@ -4,6 +4,7 @@ import com.mojang.blaze3d.platform.GlStateManager;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.model.RendererModel;
+import net.minecraft.client.renderer.model.ItemCameraTransforms;
 import net.minecraft.client.renderer.model.Model;
 import net.minecraft.client.renderer.model.ModelBox;
 import net.minecraft.util.Direction;
@@ -1903,15 +1904,24 @@ public class CopperConsoleModel extends Model {
 		
 		GlStateManager.translated(-0.12, 0.555, -0.68);
 		GlStateManager.rotated(0, 1, 0, 0);
-		
+
+		//TODO Find out wtf this below is
 		//WorldText text = new WorldText(0.22F, 0.15F, 0.002F, 0xFFFFFF);
 		//text.renderMonitor(Helper.getConsoleText(tile));
+
+		GlStateManager.scaled(0.4D, 0.3D, 0.4D); //Size of sonic in port
+		GlStateManager.translated(2.22D, 0.3D, 2.93D); //Location XYZ
+		GlStateManager.rotated(24.0D, -1.0D, 0.0D, 1.0D); //Rotation
+		GlStateManager.translated(0.3D, -0.25D, 0.25D); //Not sure
+		Minecraft.getInstance().getItemRenderer().renderItem(tile.getSonicItem(), ItemCameraTransforms.TransformType.NONE);
 		GlStateManager.popMatrix();
 	}
 
+//Run in debug mode, make change, ctrl + s, then that keybind, then in game F3 + T.
 	public void setRotationAngle(RendererModel modelRenderer, float x, float y, float z) {
 		modelRenderer.rotateAngleX = x;
 		modelRenderer.rotateAngleY = y;
 		modelRenderer.rotateAngleZ = z;
 	}
 }
+

@@ -34,7 +34,7 @@ public class MBlocks {
     public static MConsoleBlock console_copper = register(new MConsoleBlock(), "console_copper", null, false);
 
     // Tiles
-    public static HalliganKitBlock halligan_kit = register(new HalliganKitBlock(Block.Properties.create(Material.IRON), SoundType.METAL, 1.25f, 6f), "halligan_kit", null, BlockDisableConfig.haligan_kit.get());
+    public static HalliganKitBlock halligan_kit = register(new HalliganKitBlock(Block.Properties.create(Material.IRON), SoundType.METAL, 1.25f, 6f), "halligan_kit", null, BlockDisableConfig.halligan_kit.get());
     public static TemporalSiphonBlock temporal_siphon = register(new TemporalSiphonBlock(Block.Properties.create(Material.ANVIL), SoundType.ANVIL, 1.25F, 4.2F), "temporal_siphon", null, BlockDisableConfig.temporal_siphon.get());
     public static TileBlock broken_engine = register(new TileBlock(Block.Properties.create(Material.ANVIL).hardnessAndResistance(100f, 100f)), "broken_engine");
 

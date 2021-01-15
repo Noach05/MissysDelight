@@ -28,6 +28,7 @@ public class CopperConsoleTile extends ConsoleTile implements ITickableTileEntit
 
     public CopperConsoleTile() {
         super(MTiles.CONSOLE_COPPER);
+        this.registerControlEntry(ControlRegistry.MONITOR);
 
         this.controlOverrides.put(FacingControl.class, new ControlOverride(new Vec3d(-0.7534763617803086, 1.0, -0.36382471213789824), EntitySize.flexible(0.1875F, 0.1875F)));
         this.controlOverrides.put(StabilizerControl.class, new ControlOverride(new Vec3d(-1.1643087550660156, 0.5, 0.3481751412158103), EntitySize.flexible(0.1875F, 0.1875F)));

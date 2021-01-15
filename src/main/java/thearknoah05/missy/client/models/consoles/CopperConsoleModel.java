@@ -1916,6 +1916,7 @@ public class CopperConsoleModel extends Model {
 		Minecraft.getInstance().getItemRenderer().renderItem(tile.getSonicItem(), ItemCameraTransforms.TransformType.NONE);
 		GlStateManager.popMatrix();
 	}
+	//DOES THIS WORK?
 
 //Run in debug mode, make change, ctrl + s, then that keybind, then in game F3 + T.
 	public void setRotationAngle(RendererModel modelRenderer, float x, float y, float z) {

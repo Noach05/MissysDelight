@@ -1910,8 +1910,8 @@ public class CopperConsoleModel extends Model {
 		//text.renderMonitor(Helper.getConsoleText(tile));
 
 		GlStateManager.scaled(0.4D, 0.3D, 0.4D); //Size of sonic in port
-		GlStateManager.translated(2.22D, 0.3D, 2.93D); //Location XYZ
-		GlStateManager.rotated(24.0D, -1.0D, 0.0D, 1.0D); //Rotation
+		GlStateManager.translated(2.025D, -0.725D, 2.175D); //Location XYZ
+		GlStateManager.rotated(200.0D, -2.1D, -0.25D, 1.0D); //Rotation
 		GlStateManager.translated(0.3D, -0.25D, 0.25D); //Not sure
 		Minecraft.getInstance().getItemRenderer().renderItem(tile.getSonicItem(), ItemCameraTransforms.TransformType.NONE);
 		GlStateManager.popMatrix();

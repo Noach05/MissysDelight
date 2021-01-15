@@ -9,7 +9,7 @@ displayName="Missy's Delight" #mandatory
 #updateJSONURL="/" #optional
 displayURL="" #optional
 logoFile="logo.png" #optional
-credits="CommandrMoose, _ILikePandas_, Jaycoby, TheArkNoah05" #optional
+credits="CommandrMoose, _ILikePandas_, Jaycoby, TheArkNoah05, SpectrumFATM" #optional
 authors="Original Author: CommandrMoose. New author: TheArkNoah05" #optional
 description='''
 Missy's Delight is an addon mod for the New TARDIS Mod, and a continuation of the original: The Master's Delight.'''

@@ -1,5 +1,6 @@
 package thearknoah05.missy.blocks;
 
+import thearknoah05.missy.config.BlockDisableConfig;
 import thearknoah05.missy.itemgroups.MItemGroups;
 import thearknoah05.missy.other.IMakeItem;
 import thearknoah05.missy.tiles.HalliganKitTile;
@@ -106,5 +107,4 @@ public class HalliganKitBlock extends TileBlock implements IMakeItem {
             default: return NORTH;
         }
     }
-
 }

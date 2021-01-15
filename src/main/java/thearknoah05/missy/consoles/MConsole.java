@@ -10,7 +10,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.tardis.mod.Tardis;
 import net.tardis.mod.registries.IRegisterable;
 import net.tardis.mod.registries.TardisRegistries;
-import net.tardis.mod.registries.consoles.Console;
+import net.tardis.mod.registries.Console;
 
 @Mod.EventBusSubscriber(modid = Missy.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class MConsole implements IRegisterable<Console> {

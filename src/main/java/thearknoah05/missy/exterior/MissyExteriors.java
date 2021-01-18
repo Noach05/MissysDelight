@@ -4,6 +4,9 @@ import net.minecraft.util.ResourceLocation;
 import net.tardis.mod.exterior.ExteriorRegistry;
 import net.tardis.mod.exterior.IExterior;
 import net.tardis.mod.exterior.TwoBlockBasicExterior;
+import net.tardis.mod.misc.IDoorType;
+import thearknoah05.missy.Missy;
+import thearknoah05.missy.blocks.MBlocks;
 
 import java.util.ArrayList;
 
@@ -32,7 +35,7 @@ public class MissyExteriors {
     }
 
     public static void init() {
-        //BOOTH = register(new ResourceLocation(Master.MODID, "booth"), new TwoBlockBasicExterior(() -> MBlocks.exterior_booth.getDefaultState(), true, IDoorType.EnumDoorType.TT_CAPSULE, new ResourceLocation(Master.MODID, "textures/gui/exteriors/woah.png")));
+        BOOTH = register(new ResourceLocation(Missy.MODID, "booth"), new TwoBlockBasicExterior(() -> MBlocks.exterior_booth.getDefaultState(), true, IDoorType.EnumDoorType.TT_CAPSULE, new ResourceLocation(Missy.MODID, "textures/gui/exteriors/woah.png")));
     }
 
 }

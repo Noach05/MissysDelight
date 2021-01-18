@@ -22,6 +22,10 @@ public class MSounds {
     public static final SoundEvent ALERT_ALARM = null;
     public static final SoundEvent TIME_VORTEX = null;
     public static final SoundEvent BELL_RING = null;
+    public static final SoundEvent MISSYS_ALARM = null;
+    public static final SoundEvent MISSYS_HUM = null;
+    public static final SoundEvent MISSYS_LANDING = null;
+    public static final SoundEvent MISSYS_TAKE_OFF =  null;
 
     private static HashMap<ResourceLocation, ISoundScheme> SCHEMES = new HashMap<ResourceLocation, ISoundScheme>();
 
@@ -33,7 +37,11 @@ public class MSounds {
             setUpSound("throttle_blast"),
             setUpSound("alert_alarm"),
             setUpSound("time_vortex"),
-            setUpSound("bell_ring")
+            setUpSound("bell_ring"),
+            setUpSound("missys_alarm"),
+            setUpSound("missys_hum"),
+            setUpSound("missys_landing"),
+            setUpSound("missys_take_off")
 
         );
     }

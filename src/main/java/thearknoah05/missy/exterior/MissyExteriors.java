@@ -35,7 +35,7 @@ public class MissyExteriors {
     }
 
     public static void init() {
-        BOOTH = register(new ResourceLocation(Missy.MODID, "booth"), new TwoBlockBasicExterior(() -> MBlocks.exterior_booth.getDefaultState(), true, IDoorType.EnumDoorType.TT_CAPSULE, new ResourceLocation(Missy.MODID, "textures/gui/exteriors/woah.png")));
+//        BOOTH = register(new ResourceLocation(Missy.MODID, "booth"), new TwoBlockBasicExterior(() -> MBlocks.exterior_booth.getDefaultState(), true, IDoorType.EnumDoorType.TT_CAPSULE, new ResourceLocation(Missy.MODID, "textures/gui/exteriors/woah.png")));
     }
 
 }

@@ -23,8 +23,13 @@
   "missy.subtitle.bell_ring": "Bell Ring",
   "missy.subtitle.time_blast": "Engine Roar",
   "missy.subtitle.alert_alarm": "Alert Alarm",
+  "missy.subtitle.missys_landing": "Missy Landing",
+  "missy.subtitle.missys_take_off": "Missy Take-off",
+  "missy.subtitle.missys_hum": "Missy Hum",
+  "missy.subtitle.missys_alarm": "Missy Alarm",
 
-  "protocol.missy.deleteroom": "Delete all rooms"
+  "protocol.missy.deleteroom": "Delete all rooms",
 
-
+  "hum.missy:missy": "Missy's Hum",
+  "gui.missy.sound_scheme.missy":"Missy"
 }

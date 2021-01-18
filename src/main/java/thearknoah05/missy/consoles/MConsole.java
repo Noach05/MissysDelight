@@ -1,16 +1,15 @@
 package thearknoah05.missy.consoles;
 
-import net.minecraft.block.BlockState;
-import thearknoah05.missy.Missy;
-import thearknoah05.missy.blocks.MBlocks;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.tardis.mod.Tardis;
+import net.tardis.mod.registries.Console;
 import net.tardis.mod.registries.IRegisterable;
 import net.tardis.mod.registries.TardisRegistries;
-import net.tardis.mod.registries.Console;
+import thearknoah05.missy.Missy;
+import thearknoah05.missy.blocks.MBlocks;
 
 @Mod.EventBusSubscriber(modid = Missy.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class MConsole implements IRegisterable<Console> {

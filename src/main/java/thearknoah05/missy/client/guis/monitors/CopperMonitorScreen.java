@@ -8,7 +8,7 @@ import net.tardis.mod.sounds.TSounds;
 
 
 public class CopperMonitorScreen extends BaseMonitorScreen {
-    @Override
+    //TODO: FIX THE BACKGROUND!
     public static final ResourceLocation TEXTURE = new ResourceLocation("missy", "textures/gui/monitors/coppermonitor.png");
 
     public CopperMonitorScreen() {

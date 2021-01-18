@@ -1,20 +1,60 @@
 {
   "drill_loop": {
     "category": "block",
-    "subtitle": "master.subtitle.drill_loop",
+    "subtitle": "missy.subtitle.drill_loop",
     "sounds": [
       {
-        "name": "master:drill_loop",
+        "name": "missy:drill_loop",
         "stream": true
+      }
+    ]
+  },
+  "missys_landing": {
+  "category": "block",
+  "subtitle": "missy.subtitle.missys_landing",
+  "sounds": [
+    {
+      "name": "missy:tardis/missys_landing",
+      "stream": false
+    }
+  ]
+},
+  "missys_take_off": {
+    "category": "block",
+    "subtitle": "missy.subtitle.missys_take_off",
+    "sounds": [
+      {
+        "name": "missy:tardis/missys_take_off",
+        "stream": false
+      }
+    ]
+  },
+  "missys_alarm": {
+    "category": "block",
+    "subtitle": "missy.subtitle.missys_alarm",
+    "sounds": [
+      {
+        "name": "missy:tardis/missys_alarm",
+        "stream": false
+      }
+    ]
+  },
+  "missys_hum": {
+    "category": "block",
+    "subtitle": "missy.subtitle.missys_hum",
+    "sounds": [
+      {
+        "name": "missy:tardis/missys_hum",
+        "stream": false
       }
     ]
   },
   "bell_ring": {
     "category": "block",
-    "subtitle": "master.subtitle.bell_ring",
+    "subtitle": "missy.subtitle.bell_ring",
     "sounds": [
       {
-        "name": "master:tardis/bell_ring",
+        "name": "missy:tardis/bell_ring",
         "stream": true
       }
     ]
@@ -22,10 +62,10 @@
 
   "time_vortex": {
     "category": "music",
-    "subtitle": "master.subtitle.time_vortex",
+    "subtitle": "missy.subtitle.time_vortex",
     "sounds": [
       {
-        "name": "master:time_vortex",
+        "name": "missy:time_vortex",
         "stream": true
       }
     ]
@@ -33,20 +73,20 @@
 
   "throttle_blast": {
     "category": "block",
-    "subtitle": "master.subtitle.time_blast",
+    "subtitle": "missy.subtitle.time_blast",
     "sounds": [
       {
-        "name": "master:tardis/time_blast",
+        "name": "missy:tardis/time_blast",
         "stream": true
       }
     ]
   },
   "alert_alarm": {
     "category": "block",
-    "subtitle": "master.subtitle.alert_alarm",
+    "subtitle": "missy.subtitle.alert_alarm",
     "sounds": [
       {
-        "name": "master:tardis/alert_alarm",
+        "name": "missy:tardis/alert_alarm",
         "stream": true
       }
     ]

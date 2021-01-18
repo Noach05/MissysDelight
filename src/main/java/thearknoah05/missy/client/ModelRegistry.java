@@ -34,6 +34,7 @@ public class ModelRegistry {
         ClientRegistry.bindTileEntitySpecialRenderer(BoothExteriorTile.class, new BoothExteriorRenderer());
 
         ClientRegistry.bindTileEntitySpecialRenderer(CopperConsoleTile.class, new CopperConsoleRenderer());
+
         ClientRegistry.bindTileEntitySpecialRenderer(TemporalSiphonTile.class, new TemporalSiphonRenderer());
 
         ClientRegistry.bindTileEntitySpecialRenderer(BrokenEngineTile.class, new BrokenEngineRenderer());

@@ -1832,7 +1832,7 @@ public class CopperConsoleModel extends Model {
 
 	public void render(ConsoleTile tile) {
 
-
+		//Helmic Regulator:
 		bone149.rotateAngleY = (float) (bone149.rotateAngleY + Math.toRadians(1.5f));
 
 		float rotation = MathHelper.clamp(MathHelper.sin((Minecraft.getInstance().player.ticksExisted + Minecraft.getInstance().getRenderPartialTicks()) / 60) * 10, 0, 90);
@@ -1905,7 +1905,7 @@ public class CopperConsoleModel extends Model {
 		GlStateManager.translated(-0.12, 0.555, -0.68);
 		GlStateManager.rotated(0, 1, 0, 0);
 
-		//TODO Find out wtf this below is
+		//TODO Fix in world monitor text
 		//WorldText text = new WorldText(0.22F, 0.15F, 0.002F, 0xFFFFFF);
 		//text.renderMonitor(Helper.getConsoleText(tile));
 

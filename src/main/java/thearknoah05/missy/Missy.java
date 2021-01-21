@@ -22,7 +22,7 @@ import net.tardis.mod.registries.TardisRegistries;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-@Mod(Missy.MODID)
+@Mod("missy")
 public class Missy {
 
     public static final String MODID = "missy";

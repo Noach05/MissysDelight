@@ -1,11 +1,12 @@
 package thearknoah05.missy.sounds;
 
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.tardis.mod.helper.Helper;
 import net.tardis.mod.registries.SoundSchemeRegistry;
 import net.tardis.mod.sounds.SoundSchemeBase;
+import thearknoah05.missy.Missy;
 
 
 @Mod.EventBusSubscriber(
@@ -19,7 +20,7 @@ public class MSoundSchemeRegistry extends SoundSchemeRegistry {
     }
 
     public static <T extends SoundSchemeBase> T register(T scheme, String name) {
-        scheme.setRegistryName(Helper.createRL(name));
+        scheme.setRegistryName(new ResourceLocation(Missy.MODID, name));
         return scheme;
     }
 

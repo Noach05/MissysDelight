@@ -1,0 +1,20 @@
+{
+	"variants":{
+		"facing=north":{
+			"model": "missy:block/halligan_kit",
+			"y": 0
+		},
+		"facing=east":{
+			"model": "missy:block/halligan_kit",
+			"y": 90
+		},
+		"facing=south":{
+			"model": "missy:block/halligan_kit",
+			"y": 180
+		},
+		"facing=west":{
+			"model": "missy:block/halligan_kit",
+			"y": 270
+		}
+	}
+}

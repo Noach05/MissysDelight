@@ -1,0 +1,13 @@
+{
+	"repair": "false",
+	"ingredients": [
+		"minecraft:emerald",
+		"tardis:diagnostic_tool",
+		"missy:temporal_siphon",
+		"tardis:artron_capacitor_high",
+		"tardis:sonic"
+	],
+	"result": {
+		"item": "missy:halligan_kit"
+	}
+}

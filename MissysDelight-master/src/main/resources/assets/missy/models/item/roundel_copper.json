@@ -1,6 +1,0 @@
-{
-	"parent": "block/cube_all",
-    "textures": {
-        "all": "missy:blocks/roundels/roundel_copper"
-    }
-}

@@ -3,7 +3,6 @@ package thearknoah05.missy;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.loading.FMLPaths;
-import net.tardis.mod.events.CommonEvents;
 import thearknoah05.missy.config.Config;
 import thearknoah05.missy.data.LootTableCreation;
 import thearknoah05.missy.exterior.MissyExteriors;

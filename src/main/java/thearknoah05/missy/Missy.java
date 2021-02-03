@@ -3,9 +3,13 @@ package thearknoah05.missy;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.loading.FMLPaths;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.ForgeRegistry;
 import thearknoah05.missy.config.Config;
 import thearknoah05.missy.data.LootTableCreation;
 import thearknoah05.missy.exterior.MissyExteriors;
+import thearknoah05.missy.items.ItemVM;
+import thearknoah05.missy.items.MItems;
 import thearknoah05.missy.protocols.ProtocolRegistry;
 import thearknoah05.missy.proxy.ClientProxy;
 import thearknoah05.missy.proxy.IProxy;
@@ -38,9 +42,8 @@ public class Missy {
 
         FMLJavaModLoadingContext.get().getModEventBus().register(this);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::commonSetup);
-
         Config.loadConfig(Config.SERVER, FMLPaths.CONFIGDIR.get().resolve("missys-delight-common.toml").toString());
-
+        //ForgeRegistries.ITEMS.register(new ItemVM().setRegistryName("vm"));
         MinecraftForge.EVENT_BUS.register(this);
     }
 

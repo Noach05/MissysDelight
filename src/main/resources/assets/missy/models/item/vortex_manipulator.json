@@ -1,0 +1,17 @@
+{
+  "parent": "tardis:item/vm",
+  "overrides": [
+    {
+      "predicate": {
+        "open": 0
+      },
+      "model": "tardis:item/vm"
+    },
+    {
+      "predicate": {
+        "open": 1
+      },
+      "model": "tardis:item/vm_open"
+    }
+  ]
+}
